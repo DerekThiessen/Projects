@@ -1,0 +1,25 @@
+﻿@model DucksOnThePond.Core.Player
+@using DucksOnThePond.Helpers
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CorporateDetails</legend>
+
+           <div class="editor-label">
+           @Html.CheckBoxListFor(model => model.EmsId, (MultiSelectList) ViewBag.EmsId)
+          </div>          
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+<div>

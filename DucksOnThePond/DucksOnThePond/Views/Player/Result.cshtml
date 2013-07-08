@@ -1,0 +1,31 @@
+﻿@model DucksOnThePond.Core.Player
+
+@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Result</h2>
+
+<fieldset>
+    <legend>Player</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(player => player.Name)
+    </div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">
+        @Html.DisplayFor(player => player.Email)
+    </div>
+
+    <div class="display-label">Phone Number</div>
+    <div class="display-field">
+        @Html.DisplayFor(player => player.PhoneNumber)
+    </div>
+</fieldset>
+<p>
+  @Html.ActionLink("Edit", "Edit", new object{ id = Model.ID }) |
+    @Html.ActionLink("List", "Index")
+</p>
