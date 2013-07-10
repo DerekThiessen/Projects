@@ -1,22 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using DucksOnThePond.Core;
 using System.Web.Mvc;
-using DucksOnThePond.Core;
 
 namespace DucksOnThePond.Controllers
 {
-    public class PlayerController : Controller
+    public class RosterController : Controller
     {
         [HttpGet]
-        public ActionResult DataEntryForm()
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult CreatePlayer()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult DataEntryForm(Player player)
+        public ActionResult CreatePlayer(Player player)
         {
             if (ModelState.IsValid)
                 return View("Result", player);

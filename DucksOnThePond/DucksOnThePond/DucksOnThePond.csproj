@@ -128,7 +128,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PlayerController.cs" />
+    <Compile Include="Controllers\RosterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -136,18 +136,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\images\ajax-loader.gif" />
-    <Content Include="Content\images\ajax-loader.png" />
-    <Content Include="Content\images\icons-18-black.png" />
-    <Content Include="Content\images\icons-18-white.png" />
-    <Content Include="Content\images\icons-36-black.png" />
-    <Content Include="Content\images\icons-36-white.png" />
-    <Content Include="Content\jquery.mobile-1.1.0.css" />
-    <Content Include="Content\jquery.mobile-1.1.0.min.css" />
-    <Content Include="Content\jquery.mobile.structure-1.1.0.css" />
-    <Content Include="Content\jquery.mobile.structure-1.1.0.min.css" />
-    <Content Include="Content\jquery.mobile.theme-1.1.0.css" />
-    <Content Include="Content\jquery.mobile.theme-1.1.0.min.css" />
+    <Content Include="Content\mobile\images\ajax-loader.gif" />
+    <Content Include="Content\mobile\images\ajax-loader.png" />
+    <Content Include="Content\mobile\images\icons-18-black.png" />
+    <Content Include="Content\mobile\images\icons-18-white.png" />
+    <Content Include="Content\mobile\images\icons-36-black.png" />
+    <Content Include="Content\mobile\images\icons-36-white.png" />
+    <Content Include="Content\mobile\jquery.mobile-1.1.0.css" />
+    <Content Include="Content\mobile\jquery.mobile-1.1.0.min.css" />
+    <Content Include="Content\mobile\jquery.mobile.structure-1.1.0.css" />
+    <Content Include="Content\mobile\jquery.mobile.structure-1.1.0.min.css" />
+    <Content Include="Content\mobile\jquery.mobile.theme-1.1.0.css" />
+    <Content Include="Content\mobile\jquery.mobile.theme-1.1.0.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -228,7 +228,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\mobile\css\Site.css" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
@@ -241,14 +241,16 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Player\DataEntryForm.cshtml" />
-    <Content Include="Views\Player\Result.cshtml" />
-    <Content Include="Views\Player\Create.cshtml" />
+    <Content Include="Views\Roster\CreatePlayer.cshtml" />
+    <Content Include="Views\Roster\Result.cshtml" />
+    <Content Include="Views\Roster\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\desktop\css\" />
+    <Folder Include="Content\desktop\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

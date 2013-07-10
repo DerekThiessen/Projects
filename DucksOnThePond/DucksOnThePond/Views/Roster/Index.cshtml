@@ -1,0 +1,20 @@
+﻿@model DucksOnThePond.Core.Roster
+
+@{
+    ViewBag.Title = "Team Roster";
+    Layout = "~/Views/Shared/_Layout.Mobile.cshtml";
+}
+
+<fieldset>
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.LabelFor(roster => roster.Players)
+    </div>
+</fieldset>
+
+
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Navigation</li>
+    <li>@Html.ActionLink("New Player", "CreatePlayer", "Roster")</li>
+</ul>
