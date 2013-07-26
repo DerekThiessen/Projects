@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DucksOnThePond.Core", "Duck
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DucksOnThePond.Helpers", "DucksOnThePond.Helpers\DucksOnThePond.Helpers.csproj", "{11171E4B-3CB4-492A-B4CB-927588A0ACF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DucksOnThePond.Dal", "DucksOnThePond.Dal\DucksOnThePond.Dal.csproj", "{B48C5A22-A202-41A6-8256-7FD38D1AA02B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{11171E4B-3CB4-492A-B4CB-927588A0ACF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11171E4B-3CB4-492A-B4CB-927588A0ACF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11171E4B-3CB4-492A-B4CB-927588A0ACF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B48C5A22-A202-41A6-8256-7FD38D1AA02B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B48C5A22-A202-41A6-8256-7FD38D1AA02B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B48C5A22-A202-41A6-8256-7FD38D1AA02B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B48C5A22-A202-41A6-8256-7FD38D1AA02B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

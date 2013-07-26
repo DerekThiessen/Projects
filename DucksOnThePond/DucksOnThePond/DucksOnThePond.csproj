@@ -39,6 +39,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DucksOnThePond.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DucksOnThePond.Core\bin\DucksOnThePond.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DucksOnThePond.Dal">
+      <HintPath>..\DucksOnThePond.Dal\bin\DucksOnThePond.Dal.dll</HintPath>
+    </Reference>
+    <Reference Include="DucksOnThePond.Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DucksOnThePond.Helpers\bin\DucksOnThePond.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -59,9 +70,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -254,16 +262,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DucksOnThePond.Core\DucksOnThePond.Core.csproj">
-      <Project>{8cc59921-932f-4b03-bbc2-7f149308ec9e}</Project>
-      <Name>DucksOnThePond.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DucksOnThePond.Helpers\DucksOnThePond.Helpers.csproj">
-      <Project>{11171e4b-3cb4-492a-b4cb-927588a0acf0}</Project>
-      <Name>DucksOnThePond.Helpers</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

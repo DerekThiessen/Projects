@@ -17,6 +17,8 @@ namespace DucksOnThePond.Core
         public string Email { get; set; }
 
         [RegularExpression(@"\d+")]
-        public string PhoneNumber { get; set; } 
+        public string PhoneNumber { get; set; }
+
+        public DateTime DateAdded { get; set; }
     }
 }
