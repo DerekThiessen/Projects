@@ -1,29 +1,26 @@
-﻿using DucksOnThePond.Core;
+﻿using DucksOnThePond.Core.Interfaces;
+using DucksOnThePond.Core.Models;
+using System.Collections.Generic;
 using System.Web.Mvc;
+using DucksOnThePond.Models;
 
 namespace DucksOnThePond.Controllers
 {
     public class RosterController : Controller
     {
-        [HttpGet]
+        private IPlayerService _playerService;
+
+        public RosterController(IPlayerService playerService)
+        {
+            _playerService = playerService;
+        }
+
         public ActionResult Index()
         {
-            return View();
-        }
+            RosterViewModel rosterViewModel = new RosterViewModel();
+            rosterViewModel.Players = _playerService.GetAllPlayers();
 
-        [HttpGet]
-        public ActionResult CreatePlayer()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult CreatePlayer(Player player)
-        {
-            if (ModelState.IsValid)
-                return View("Result", player);
-            else
-                return View();
+            return View(rosterViewModel);
         }
     }
 }

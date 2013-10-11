@@ -1,20 +1,37 @@
-﻿@model DucksOnThePond.Core.Roster
+﻿@using Newtonsoft.Json
+@model DucksOnThePond.Models.RosterViewModel
 
 @{
     ViewBag.Title = "Team Roster";
     Layout = "~/Views/Shared/_Layout.Mobile.cshtml";
 }
 
-<fieldset>
-    <div class="display-label">Name</div>
-    <div class="display-field">
-        @Html.LabelFor(roster => roster.Players)
-    </div>
-</fieldset>
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/knockout-2.1.0.js"></script>
+<script src="~/Scripts/knockout.mapping-latest.js"></script>
+<script src="~/Models/Js/RosterViewModel.js"></script>
 
+<h2>Team Roster</h2>
 
+@{ var rosterViewModel = Model.Players.FirstOrDefault(); }
 
-<ul data-role="listview" data-inset="true">
-    <li data-role="list-divider">Navigation</li>
-    <li>@Html.ActionLink("New Player", "CreatePlayer", "Roster")</li>
-</ul>
+<table>
+    <thead>
+        <tr>
+            <th>@Html.LabelFor(model => rosterViewModel.FirstName)</th>
+            <th>@Html.LabelFor(model => rosterViewModel.LastName)</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: Players">
+        <tr>
+            <td>@Html.TextBoxFor(model => rosterViewModel.FirstName, new {data_bind = "value: FirstName"})</td>
+            <td> @Html.TextBoxFor(model => rosterViewModel.LastName, new {data_bind = "value: LastName"})</td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <button data-bind="click: addPlayer">Add</button>
+</div>
+    
+
