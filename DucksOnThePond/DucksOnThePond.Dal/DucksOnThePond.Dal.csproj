@@ -42,9 +42,6 @@
     <Reference Include="DucksOnThePond.Helpers">
       <HintPath>..\DucksOnThePond.Helpers\bin\DucksOnThePond.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>

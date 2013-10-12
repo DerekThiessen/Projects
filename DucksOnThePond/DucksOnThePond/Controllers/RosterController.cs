@@ -17,6 +17,8 @@ namespace DucksOnThePond.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Title = "Team Roster";
+
             RosterViewModel rosterViewModel = new RosterViewModel();
             rosterViewModel.Players = _playerService.GetAllPlayers();
 

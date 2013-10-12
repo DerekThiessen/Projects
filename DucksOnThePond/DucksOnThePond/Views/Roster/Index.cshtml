@@ -1,4 +1,4 @@
-﻿@using Newtonsoft.Json
+﻿@using System.Web.Script.Serialization
 @model DucksOnThePond.Models.RosterViewModel
 
 @{
@@ -6,10 +6,13 @@
     Layout = "~/Views/Shared/_Layout.Mobile.cshtml";
 }
 
-<script src="~/Scripts/jquery-1.7.1.min.js"></script>
 <script src="~/Scripts/knockout-2.1.0.js"></script>
 <script src="~/Scripts/knockout.mapping-latest.js"></script>
-<script src="~/Models/Js/RosterViewModel.js"></script>
+
+<script>
+    var initialData = @(new JavaScriptSerializer().Serialize(Model));
+    var viewModel = { players: ko.observableArray(initialData) };
+</script>
 
 <h2>Team Roster</h2>
 

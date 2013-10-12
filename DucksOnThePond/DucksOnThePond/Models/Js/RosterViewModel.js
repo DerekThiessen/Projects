@@ -1,3 +1,5 @@
-﻿function addPlayer() {
+﻿alert('.');
+
+function addPlayer() {
     alert('lets go');
 }
