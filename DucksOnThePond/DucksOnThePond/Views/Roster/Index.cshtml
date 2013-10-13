@@ -6,35 +6,81 @@
     Layout = "~/Views/Shared/_Layout.Mobile.cshtml";
 }
 
-<script src="~/Scripts/knockout-2.1.0.js"></script>
-<script src="~/Scripts/knockout.mapping-latest.js"></script>
-
-<script>
-    var initialData = @(new JavaScriptSerializer().Serialize(Model));
-    var viewModel = { players: ko.observableArray(initialData) };
-</script>
-
 <h2>Team Roster</h2>
 
-@{ var rosterViewModel = Model.Players.FirstOrDefault(); }
-
-<table>
-    <thead>
-        <tr>
-            <th>@Html.LabelFor(model => rosterViewModel.FirstName)</th>
-            <th>@Html.LabelFor(model => rosterViewModel.LastName)</th>
-        </tr>
-    </thead>
+<table class='playersEditor'>
+    <tr>
+        <th>Number</th>
+        <th>First name</th>
+        <th>Last name</th>
+    </tr>
     <tbody data-bind="foreach: Players">
         <tr>
-            <td>@Html.TextBoxFor(model => rosterViewModel.FirstName, new {data_bind = "value: FirstName"})</td>
-            <td> @Html.TextBoxFor(model => rosterViewModel.LastName, new {data_bind = "value: LastName"})</td>
+            <td data-bind="text: Number" />
+            <td data-bind="text: FirstName" />
+            <td data-bind="text: LastName" />
         </tr>
     </tbody>
 </table>
-
 <div>
-    <button data-bind="click: addPlayer">Add</button>
+    <p>
+        <button data-bind="click: addPlayer">Add a player</button>
+    </p>
 </div>
-    
 
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/knockout-2.3.0.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var PlayersViewModel = function () {
+            var self = this;
+            
+            self.Number = ko.observable("");
+            self.FirstName = ko.observable("");
+            self.LastName = ko.observable("");
+
+            var Player = {
+                Number: self.Number,
+                FirstName: self.FirstName,
+                LastName: self.LastName
+            }
+            
+            self.Player = ko.observable();
+            self.Players = ko.observableArray();
+            
+            $.ajax({
+                url: '@Url.Action("GetAllPlayers", "Roster")',
+                cache: false,
+                type: 'get',
+                dataType: "json",
+                contentType: 'application/json; charset-utf-8',
+                data: {},
+                success: function (data) {
+                    self.Players(data);
+                }
+            });
+
+            self.addPlayer = function () {
+                $.ajax({
+                    url: '@Url.Action("GetAllPlayers", "Roster")',
+                    cache: false,
+                    type: 'post',
+                    dataType: "json",
+                    contentType: 'application/json; charset-utf-8',
+                    data: ko.toJSON(Player),
+                    success: function (data) {
+                        self.Players.push(data);
+                        self.Number("");
+                        self.FirstName("");
+                        self.LastName("");
+                    }
+                }).fail(function (xhr, textStatus, err) {
+                    alert(err);
+                });
+            }
+        };
+
+        ko.applyBindings(new PlayersViewModel());
+    });
+</script>
