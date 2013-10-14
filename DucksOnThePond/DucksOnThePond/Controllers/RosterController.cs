@@ -19,12 +19,11 @@ namespace DucksOnThePond.Controllers
         {
             ViewBag.Title = "Team Roster";
 
-            return View();
-        }
+            RosterViewModel rosterViewModel = new RosterViewModel();
+            rosterViewModel.Players = new List<Player>();
+            rosterViewModel.Players = _playerService.GetAllPlayers();
 
-        public JsonResult GetAllPlayers()
-        {
-            return Json(_playerService.GetAllPlayers(), JsonRequestBehavior.AllowGet);
+            return View(rosterViewModel);
         }
     }
 }
