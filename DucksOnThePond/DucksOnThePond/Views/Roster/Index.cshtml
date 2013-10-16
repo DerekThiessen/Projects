@@ -19,12 +19,13 @@
             <td>@Html.TextBoxFor(model => model.Players.First().Number, new {data_bind="value: Number"})</td>
             <td>@Html.TextBoxFor(model => model.Players.First().FirstName, new {data_bind="value: FirstName"})</td>
             <td>@Html.TextBoxFor(model => model.Players.First().LastName, new {data_bind="value: LastName"})</td>
+            <td><a href="#" data-bind="click: function () { viewModel.removePlayer(this); }">Remove Player</a></td>
         </tr>
     </tbody>
 </table>
 <div>
 <p>
-    <button data-bind='click: addPlayer'>Add a player</button>
+    <button data-bind='click: addPlayer'>Add Player</button>
 </p>
 </div>
 
