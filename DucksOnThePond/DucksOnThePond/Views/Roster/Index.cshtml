@@ -16,16 +16,16 @@
     </tr>
     <tbody data-bind="foreach: Players">
         <tr>
-            <td data-bind="text: Number" />
-            <td data-bind="text: FirstName" />
-            <td data-bind="text: LastName" />
+            <td>@Html.TextBoxFor(model => model.Players.First().Number, new {data_bind="value: Number"})</td>
+            <td>@Html.TextBoxFor(model => model.Players.First().FirstName, new {data_bind="value: FirstName"})</td>
+            <td>@Html.TextBoxFor(model => model.Players.First().LastName, new {data_bind="value: LastName"})</td>
         </tr>
     </tbody>
 </table>
 <div>
-    <p>
-        <button data-bind="click: addPlayer">Add a player</button>
-    </p>
+<p>
+    <button data-bind='click: addPlayer'>Add a player</button>
+</p>
 </div>
 
 <script src="~/Scripts/jquery-1.7.1.min.js"></script>
@@ -33,27 +33,42 @@
 <script src="~/Scripts/knockout.mapping-latest.js"></script>
 
 <script>
-    $(document).ready(function () {
-        self.addPlayer = function () {
-            $.ajax({
-                url: '@Url.Action("GetAllPlayers", "Roster")',
-                cache: false,
-                type: 'post',
-                dataType: "json",
-                contentType: 'application/json; charset-utf-8',
-                data: ko.toJSON(Player),
-                success: function (data) {
-                    self.Players.push(data);
-                    self.Number("");
-                    self.FirstName("");
-                    self.LastName("");
-                }
-            }).fail(function (xhr, textStatus, err) {
-                alert(err);
-            });
-        }
+    function Player(number, firstName, lastName) {
+        var self = this;
 
-        var viewModel = ko.mapping.fromJS(@Html.Raw(Json.Encode(Model)))
+        self.Number = ko.observable(number);
+        self.FirstName = ko.observable(firstName);
+        self.LastName = ko.observable(lastName);
+    }
+
+    var dataMappingOptions = {
+        players: {
+            key: function (data) {
+                return ko.utils.unwrapObservable(data.id);
+            }
+        }
+    }
+
+    var viewModel, ModelDefinition =  function (data) {
+            var self = this;
+
+            ko.mapping.fromJS(data, {}, self);
+
+            self.addPlayer = function () {
+                self.Players.push({
+                    Number: "",
+                    FirstName: "",
+                    LastName: ""
+                });
+            }
+
+            self.removePlayer = function (row) {
+                self.Players.remove(row);
+            }
+    }
+            
+    $(document).ready(function () {
+        viewModel = new ModelDefinition(@Html.Raw(Json.Encode(Model)))
         ko.applyBindings(viewModel);
     });
 </script>
